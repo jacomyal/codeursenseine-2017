@@ -30,10 +30,6 @@ const DATA = [
     label: 'camembert',
     value: 14700000,
   },
-  {
-    label: 'web2day',
-    value: 93200,
-  },
 ].map(({ label, value }, i) => ({
   value,
   label,
