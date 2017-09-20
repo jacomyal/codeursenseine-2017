@@ -20,12 +20,15 @@ data.lines.forEach((line, i) => {
   scene.stage.addChild(sprite);
   sprites[i] = sprite;
 
+  const xRatio = Math.random() * 20 + 1;
+  const yRatio = Math.random() * 20 + 1;
+
   scene.ticker.add(() => {
     sprite.x =
-      (sprite.x * 19 + sprite.targetX) / 20
+      (sprite.x * xRatio + sprite.targetX) / (xRatio + 1)
       + (Math.random() * 0.6) - 0.3;
     sprite.y =
-      (sprite.y * 19 + sprite.targetY) / 20
+      (sprite.y * yRatio + sprite.targetY) / (yRatio + 1)
       + (Math.random() * 0.6) - 0.3;
     sprite.rotation = Math.random() / 30 - 1 / 60;
   });

@@ -58,8 +58,9 @@ export function barChart(column) {
     });
   }
 
-  // 4. Define bars:
   /**
+   * 4. Define bars:
+   *
    * Now that part is a bit annoying : Depending on the repartition of the
    * values of the bars, the total space occupied by the bars can varry. A lot.
    *
@@ -106,9 +107,36 @@ export function barChart(column) {
     const row = Math.floor(index / bar.cols);
 
     const sprite = sprites[i];
-    sprite.targetX = bar.left + col * bar.colWidth;
+    sprite.targetX = BORDER_MARGIN + bar.left + col * bar.colWidth;
     sprite.targetY = HEIGHT - BORDER_MARGIN - row * bar.rowHeight;
 
     spentValues[value]++;
   });
+
+  // 6. Deal with captions:
+  const container = document.getElementById('captions');
+  container.innerHTML = '';
+  values.forEach(value => {
+    const label = document.createElement('DIV');
+    label.setAttribute('title', value.value + ' : ' + value.count);
+    label.setAttribute('class', 'caption');
+    label.style.left = (BORDER_MARGIN + value.left) + 'px';
+    label.style.width = width + 'px';
+    label.style.height = width + 'px';
+    label.style.lineHeight = width + 'px';
+    console.log(label.style);
+
+    const wrapper = document.createElement('SPAN');
+    wrapper.innerHTML = value.value;
+    label.append(wrapper);
+    captions.append(label);
+  })
+
+  if (values.length > 6) {
+    container.classList.add('many');
+    container.classList.remove('few');
+  } else {
+    container.classList.remove('many');
+    container.classList.add('few');
+  }
 }

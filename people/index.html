@@ -4,16 +4,49 @@
   <title>Démo petits personnages</title>
   <meta charset="UTF-8">
   <style type="text/css">
-  /* TODO */
+    body {
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+    body > * {
+      width: 800px;
+    }
+    select {
+      width: 100%;
+    }
+    #captions {
+      position: relative;
+    }
+    .caption {
+      position: absolute;
+    }
+    #captions.many .caption {
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+      text-align: right;
+    }
+    #captions.many .caption > span {
+      white-space: nowrap;
+      position: absolute;
+      right: 0;
+    }
+    #captions.few .caption {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      text-align: center;
+      white-space: nowrap;
+      line-height: 1em !important;
+    }
   </style>
 </head>
 <body>
-  <fieldset>
+  <div>
     <label for="question">Choose a question:</label>
     <select id="question">
     </select>
-  </fieldset>
+  </div>
   <div id="scene"></div>
+  <div id="captions"></div>
   <script type="text/javascript" src="./build/bundle.js"></script>
 </body>
 </html>
