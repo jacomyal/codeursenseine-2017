@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Démo petits personnages</title>
+  <meta charset="UTF-8">
+  <style type="text/css">
+    body,
+    #app {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+    #app {
+      position: absolute;
+      overflow: hidden;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vmin;
+      height: 100vmin;
+    }
+    select {
+      max-width: 100%;
+    }
+    #scene {
+      height: calc(100% - 7em);
+    }
+    #captions {
+      position: relative;
+    }
+    .caption {
+      position: absolute;
+    }
+    #captions.many .caption {
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+      text-align: right;
+    }
+    #captions.many .caption > span {
+      white-space: nowrap;
+      position: absolute;
+      right: 0;
+    }
+    #captions.few .caption {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      text-align: center;
+      white-space: nowrap;
+      line-height: 1em !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div>
+      <label for="question">Choose a question:</label>
+      <select id="question">
+      </select>
+    </div>
+    <div id="scene"></div>
+    <div id="captions"></div>
+  </div>
+  <script type="text/javascript" src="./build/bundle.js"></script>
+</body>
+</html>
