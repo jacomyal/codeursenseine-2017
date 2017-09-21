@@ -21,7 +21,6 @@ data.lines.forEach((line, i) => {
   scene.ticker.add(() => {
     sprite.x = (sprite.x + sprite.targetX) / 2;
     sprite.y = (sprite.y + sprite.targetY) / 2;
-    sprite.rotation = Math.random() / 30 - 1 / 60;
   });
 });
 
