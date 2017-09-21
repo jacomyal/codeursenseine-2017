@@ -4,13 +4,12 @@ import data from './data';
 import sprites from './sprites';
 
 import {
-  WIDTH, HEIGHT, MARGIN,
   SPRITE_WIDTH, SPRITE_HEIGHT,
   ANSWER_MISSING, ANSWER_OTHERS,
-  BORDER_MARGIN, MAX_VALUES,
+  MARGIN, BORDER_MARGIN, MAX_VALUES, MAX_H_WIDTH,
 } from './consts';
 
-export function barChart(column) {
+export default function layout(column, sceneWidth, sceneHeight) {
   let values = {};
   let isNumberField = true;
 
@@ -69,15 +68,15 @@ export function barChart(column) {
    */
   const max = _.maxBy(values, 'count').count;
   const width = (
-    WIDTH
+    sceneWidth
     - 2 * BORDER_MARGIN
     - (values.length - 1) * MARGIN
   ) / values.length;
   values.forEach((value, i) => {
-    const height = (HEIGHT - 2 * BORDER_MARGIN) * value.count / max;
+    const height = (sceneHeight - 2 * BORDER_MARGIN) * value.count / max;
 
     value.left = (width + MARGIN) * i;
-    value.top = (HEIGHT - 2 * BORDER_MARGIN) * (max - value.count) / max;
+    value.top = (sceneHeight - 2 * BORDER_MARGIN) * (max - value.count) / max;
     value.rows = Math.ceil(Math.sqrt(
       value.count * (height * SPRITE_WIDTH) / (width * SPRITE_HEIGHT)
     ));
@@ -108,7 +107,7 @@ export function barChart(column) {
 
     const sprite = sprites[i];
     sprite.targetX = BORDER_MARGIN + bar.left + col * bar.colWidth;
-    sprite.targetY = HEIGHT - BORDER_MARGIN - row * bar.rowHeight;
+    sprite.targetY = sceneHeight - BORDER_MARGIN - row * bar.rowHeight;
 
     spentValues[value]++;
   });
@@ -124,7 +123,6 @@ export function barChart(column) {
     label.style.width = width + 'px';
     label.style.height = width + 'px';
     label.style.lineHeight = width + 'px';
-    console.log(label.style);
 
     const wrapper = document.createElement('SPAN');
     wrapper.innerHTML = value.value;
@@ -132,7 +130,7 @@ export function barChart(column) {
     captions.append(label);
   })
 
-  if (values.length > 6) {
+  if (width < MAX_H_WIDTH) {
     container.classList.add('many');
     container.classList.remove('few');
   } else {

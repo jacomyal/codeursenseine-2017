@@ -1,11 +1,7 @@
 import { Application } from 'pixi.js';
 
-import { WIDTH, HEIGHT } from './consts';
+import { setState, onStateChange } from './state';
 
-const app = new Application(
-  WIDTH,
-  HEIGHT,
-  { transparent: true }
-);
+const app = new Application(1, 1, { transparent: true });
 
 export default app;

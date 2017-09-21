@@ -2,8 +2,6 @@ import data from './data';
 import scene from './scene';
 import { drawSprite } from './utils';
 
-import { WIDTH, HEIGHT } from './consts';
-
 const sprites = {};
 
 data.lines.forEach((line, i) => {
@@ -12,8 +10,8 @@ data.lines.forEach((line, i) => {
   sprite.anchor.set(0.5);
 
   // Random initial value:
-  sprite.x = Math.random() * WIDTH;
-  sprite.y = Math.random() * HEIGHT;
+  sprite.x = 0;
+  sprite.y = 0;
   sprite.targetX = sprite.x;
   sprite.targetY = sprite.y;
 
