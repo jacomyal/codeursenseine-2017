@@ -26,7 +26,7 @@ const PANTS = ['#5f5e9a', '#454545', '#632222'];
 const ROBES = ['#f0c647', '#75bd4b', '#c35ece'];
 
 function _drawBody(ctx, person) {
-  ctx.fillStyle = SKINS[person._index % SKINS.length];
+  ctx.fillStyle = SKINS[person._print1 % SKINS.length];
 
   // Head:
   ctx.fillRect(1, 0, 4, 1);
@@ -34,7 +34,7 @@ function _drawBody(ctx, person) {
 
   // Body and arms:
   ctx.fillRect(1, 4, 4, 1);
-  ctx.fillRect(0, 5, 5, 3);
+  ctx.fillRect(0, 5, 6, 5);
 
   // Legs:
   ctx.fillRect(1, 10, 1, 2);
@@ -47,20 +47,20 @@ function _drawClothes(ctx, person) {
   const gender = person.Q39;
 
   // "Youngsters"
-  if (age.match(/25/)) {
+  if (age.match(/2[56]/)) {
     // T-Shirt :
-    ctx.fillStyle = TSHIRTS[person._index % TSHIRTS.length];
+    ctx.fillStyle = TSHIRTS[person._print3 % TSHIRTS.length];
     ctx.fillRect(0, 5, 6, 2);
     ctx.fillRect(1, 7, 4, 2);
 
   // "Oldsters" (and others):
   } else {
     // Shirt :
-    ctx.fillStyle = SHIRTS[person._index % SHIRTS.length];
+    ctx.fillStyle = SHIRTS[person._print1 % SHIRTS.length];
     ctx.fillRect(0, 5, 6, 4);
 
     // Vest :
-    ctx.fillStyle = VESTS[person._index % VESTS.length];
+    ctx.fillStyle = VESTS[person._print2 % VESTS.length];
     ctx.fillRect(0, 5, 1, 3);
     ctx.fillRect(1, 5, 1, 4);
     ctx.fillRect(4, 5, 1, 4);
@@ -70,18 +70,18 @@ function _drawClothes(ctx, person) {
   // Robes for some women:
   if (gender === 'female' && !(person.index % 3)) {
     // Robe :
-    ctx.fillStyle = ROBES[person._index % ROBES.length];
+    ctx.fillStyle = ROBES[person._print1 % ROBES.length];
     ctx.fillRect(1, 9, 4, 3);
   } else {
     // Pants :
-    ctx.fillStyle = PANTS[person._index % PANTS.length];
+    ctx.fillStyle = PANTS[person._print2 % PANTS.length];
     ctx.fillRect(1, 9, 4, 1);
     ctx.fillRect(1, 10, 1, 1);
     ctx.fillRect(4, 10, 1, 1);
   }
 
   // Shoes :
-  ctx.fillStyle = SHOES[person._index % SHOES.length];
+  ctx.fillStyle = SHOES[person._print3 % SHOES.length];
   ctx.fillRect(1, 11, 1, 1);
   ctx.fillRect(4, 11, 2, 1);
 }
@@ -90,15 +90,15 @@ function _drawHead(ctx, person) {
   const gender = person.Q39;
 
   // Eyes:
-  ctx.fillStyle = EYES[person._index % EYES.length];
+  ctx.fillStyle = EYES[person._print1 % EYES.length];
   ctx.fillRect(1, 2, 1, 1);
   ctx.fillRect(4, 2, 1, 1);
 
   // Hair:
-  ctx.fillStyle = HAIRS[person._index % HAIRS.length];
+  ctx.fillStyle = HAIRS[person._print2 % HAIRS.length];
 
   // Long hair:
-  if (gender === 'female' && person._index % 3) {
+  if (gender === 'female' && person._print3 % 3) {
     ctx.fillRect(0, 0, 5, 1);
     ctx.fillRect(0, 1, 4, 1);
     ctx.fillRect(0, 2, 1, 4);
@@ -113,7 +113,7 @@ function _drawHead(ctx, person) {
   }
 
   // Facial hair:
-  if (gender === 'male' && !(person._index % 4)) {
+  if (gender === 'male' && !(person._print3 % 4)) {
     ctx.fillRect(2, 3, 2, 1);
     ctx.fillRect(1, 4, 4, 1);
   }
