@@ -1,0 +1,18 @@
+{
+  "name": "technophile",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "Alexis Jacomy",
+  "license": "MIT",
+  "scripts": {
+    "start": "kotatsu serve src/index.js --index ./index.html",
+    "build": "kotatsu build client src/index.js --minify --es2015 --no-source-maps --index ./index.html --output build/bundle.js"
+  },
+  "devDependencies": {
+    "kotatsu": "^0.15.2"
+  },
+  "dependencies": {
+    "three": "^0.84.0",
+    "three-orbit-controls": "^82.1.0"
+  }
+}
