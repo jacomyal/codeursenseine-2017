@@ -9,6 +9,6 @@ Ce dépôt contient le code des démos. Les slides sont consultables à l'adress
   4. [jacomyal.github.io/codeursenseine-2017/people-basic](http://jacomyal.github.io/codeursenseine-2017/people-basic)
   4. [jacomyal.github.io/codeursenseine-2017/people](http://jacomyal.github.io/codeursenseine-2017/people)
 
-Les données utilisées dans *heatmap*, *people-basic* et *people* sont issues d'une [enquête](https://medium.com/@Elijah_Meeks/2017-data-visualization-survey-results-40688830b9f2) sur les professionnels de la visualisation de données par [Elijah Meeks](https://twitter.com/elijah_meeks, début 2017.
+Les données utilisées dans *heatmap*, *people-basic* et *people* sont issues d'une [enquête](https://medium.com/@Elijah_Meeks/2017-data-visualization-survey-results-40688830b9f2) sur les professionnels de la visualisation de données par [Elijah Meeks](https://twitter.com/elijah_meeks), début 2017.
 
 Les données utilisées dans *anaglyph* et *augmented* ont été récupérées à la main dans Google, en mai 2017.
