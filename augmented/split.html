@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Démo AR</title>
+  <meta charset="UTF-8">
+  <style type="text/css">
+    #left, #right {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      overflow: hidden;
+    }
+    #left {
+      left: 0;
+      width: 30%;
+    }
+    #right {
+      right: 0;
+      width: 70%;
+    }
+    #image, #url {
+      height: 50%;
+      width: 100%;
+      position: relative;
+    }
+    #image {
+      background-image: url(./assets/HIRO.jpg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    #url a {
+      font-family: sans-serif;
+      color: black;
+      font-size: 48px;
+      top: 50%;
+      text-align: center;
+      width: 100%;
+      transform: translateY(-50%);
+      display: block;
+      position: absolute;
+    }
+    iframe {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="left">
+    <div id="image"></div>
+    <div id="url">
+      <a href="http://bit.ly/ces-ar">bit.ly/ces-ar</a>
+    </div>
+  </div>
+  <div id="right">
+    <iframe src="./index.html" frameborder="0" height="100%" width="100%"></iframe>
+  </div>
+</body>
+</html>

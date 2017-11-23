@@ -56,6 +56,8 @@ let acc = -Math.PI / 4;
 const container = new THREE.Group();
 scene.add(container);
 container.rotation.x = -Math.PI / 2;
+container.translateY(-0.5);
+window.CONTAINER = container;
 
 DATA.forEach(({ value, color, label }) => {
   // Slice angle and delay vector:
@@ -90,7 +92,7 @@ DATA.forEach(({ value, color, label }) => {
   const text = makeTextSprite(label);
   text.position.set(
     SIZE * Math.cos(acc + angle / 2),
-    SIZE * Math.sin(acc + angle / 2),
+    SIZE * Math.sin(acc + angle / 2) + 0.5,
     value * SIZE / 2 / max + SIZE / 2
   );
   container.add(text);
